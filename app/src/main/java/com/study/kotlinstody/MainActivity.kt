@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.Looper
 import android.util.Log
 import kotlinx.coroutines.*
-import java.lang.Runnable
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -20,12 +19,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        GlobalScope.launch(Dispatchers.Main){
-            Log.i(TG, "Dispatchers.Main isMainThread ${isMain()}")
-        }
-
+        //上下文切换到IO主线程
         GlobalScope.launch(Dispatchers.IO) {
-            Log.i(TG, "Dispatchers.IO isMainThread ${isMain()}")
+            Log.i(TG, "Dispatchers.IO isMainThread ${isMain()}")//输出false
+
+            //上下文切换到主线程
+            GlobalScope.launch(Dispatchers.Main){
+                Log.i(TG, "Dispatchers.Main isMainThread ${isMain()}")//输出true
+            }
+
         }
     }
 }
