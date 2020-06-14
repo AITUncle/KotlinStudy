@@ -11,25 +11,25 @@ public class JavaFileUtil {
 
     @Nullable
     public static String readFileFirstLine(File file) {
-        String firstLine = null;
+        String firstLine;
         BufferedReader bufferedReader = null;
         try {
             bufferedReader = new BufferedReader(new FileReader(file));
             firstLine = bufferedReader.readLine();
-            bufferedReader.close();
             return firstLine;
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             if (bufferedReader != null) {
                 try {
+                    //要主动close，否则将可能泄露
                     bufferedReader.close();
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
             }
         }
-        return firstLine;
+        return null;
     }
 
 }

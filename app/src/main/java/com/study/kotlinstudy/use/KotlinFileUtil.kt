@@ -9,6 +9,7 @@ class KotlinFileUtil {
         var firstLine: String? = null
         try {
             file.bufferedReader().use {
+                //use函数执行完只有将自动关闭CloseAble，所以不需要主动close。
                 firstLine = it.readLine()
             }
         }catch (e:IOException){
