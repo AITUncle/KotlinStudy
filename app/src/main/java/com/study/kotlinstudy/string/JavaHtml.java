@@ -1,6 +1,6 @@
 package com.study.kotlinstudy.string;
 
-public class HtmlJava {
+public class JavaHtml {
 
     private static final String HTML =
             "<!DOCTYPE HTML>\n" +
