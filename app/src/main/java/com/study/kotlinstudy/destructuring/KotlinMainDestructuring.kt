@@ -14,17 +14,36 @@ fun main() {
     println("my name is $myName, i am $myAge")
 }
 
-fun getFirstPeople() = People("IT互联网大叔", 18)
+fun getFirstPeople() = People("IT互联网大叔", 18u)
 
 
-class People(val name: String, val age: Int) {
+//class People() {
+//    private lateinit var name: String
+//    private var age: Int = 0
+//
+//    constructor(name: String, age: Int) : this() {
+//        this.name = name
+//        if (age > 0) {
+//            this.age = age
+//        } else {
+//            println("illegal age $age")
+//        }
+//    }
+//
+//    operator fun component1() = name
+//    operator fun component2() = age
+//}
+
+class People(val name: String, val age:UByte) {
 
     operator fun component1() = name
     operator fun component2() = age
 }
 
+
+
 fun test(){
-    val people = People("IT互联网大叔", 18)
+    val people = People("IT互联网大叔", 18u)
     var (myName, myAge) = people//注意这行代码，解构申明
     println("my name is $myName, i am $myAge")
 }
