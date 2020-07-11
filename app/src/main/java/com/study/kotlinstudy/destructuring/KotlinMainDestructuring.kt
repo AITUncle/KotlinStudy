@@ -17,15 +17,16 @@ fun main() {
 fun getFirstPeople() = People("IT互联网大叔", 18u)
 
 
-//class People() {
-//    private lateinit var name: String
-//    private var age: Int = 0
+//class People {
+//    private val name: String
+//    private val age: Int
 //
-//    constructor(name: String, age: Int) : this() {
+//    constructor(name: String, age: Int) {
 //        this.name = name
-//        if (age > 0) {
+//        if (age >= 0) {
 //            this.age = age
 //        } else {
+//            this.age = 0
 //            println("illegal age $age")
 //        }
 //    }
