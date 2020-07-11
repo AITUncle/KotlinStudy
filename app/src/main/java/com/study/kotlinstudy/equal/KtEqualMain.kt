@@ -1,7 +1,15 @@
 package com.study.kotlinstudy.equal
 
 
-
+/**
+ * kotlin 提供了两个相等操作符 == 和 ===
+ * == Structural equality【结构相等】，用 equals() 检测。
+ *     相当于调用 Object.equals() 方法，并且自动判断了为对象为null情况，无需手动判空处理。
+ *     Object类equals 的默认实现，就是引用相等
+ *
+ * === Referential equality【引用相等】，两个引用是否指向同一对象
+ *     相当于java的 ==
+ */
 fun main() {
     intEqual()
     stringEqual()
@@ -36,4 +44,15 @@ fun stringEqual() {
  */
 fun isTextEqual(str1: String?, str2: String?): Boolean {
     return str1 == str2
+}
+
+fun isTextEqual2(str1: String?, str2: String?):Boolean{
+    return str1?.equals(str2) ?: (str1 === null)
+}
+
+fun isTextEqual3(str1: String?, str2: String?):Boolean{
+    if (str1 == null){
+        return str2 == null
+    }
+    return str1?.equals(str2)
 }
